@@ -1,25 +1,14 @@
-import {
-  initializeApp,
-  getApps,
-  App,
-  getApp,
-  cert,
-  ServiceAccount,
-} from "firebase-admin/app";
+import { initializeApp, getApps, App, getApp, cert } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
 import { getStorage } from "firebase-admin/storage";
 
-// Ensure serviceKey is imported with the correct type
-import serviceKey from "./service_key.json";
-
-// Ensure TypeScript knows this is a ServiceAccount object
-const serviceAccount = serviceKey as ServiceAccount;
+const serviceKey = require("@/service_key.json");
 
 let app: App;
 
 if (getApps().length === 0) {
   app = initializeApp({
-    credential: cert(serviceAccount),
+    credential: cert(serviceKey),
   });
 } else {
   app = getApp();

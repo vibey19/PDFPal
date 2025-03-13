@@ -1,18 +1,6 @@
-import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
-import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
-
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"], // Include desired font weights
-});
-
-export const metadata: Metadata = {
-  title: "PDFPal",
-  description: "Talk to your PDF",
-};
+import { Toaster } from "@/components/ui/toaster";
+import "./globals.css";
 
 export default function RootLayout({
   children,
@@ -22,7 +10,10 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={`${poppins.variable} antialiased`}>{children}</body>
+        <body className="min-h-screen h-screen overflow-hidden flex flex-col">
+          <Toaster />
+          {children}
+        </body>
       </html>
     </ClerkProvider>
   );

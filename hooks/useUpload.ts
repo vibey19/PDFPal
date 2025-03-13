@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
-// import { generateEmbeddings } from "@/actions/generateEmbeddings";
+import { generateEmbeddings } from "@/actions/generateEmbeddings";
 import { db, storage } from "@/firebase";
 import { useUser } from "@clerk/nextjs";
 import { doc, setDoc } from "firebase/firestore";
@@ -31,7 +30,7 @@ function useUpload() {
 
     // TODO: FREE/PRO limitations...
 
-    const fileIdToUploadTo = uuidv4();
+    const fileIdToUploadTo = uuidv4(); // example: 123e4567-e89b-12d3-a456-426614174000
 
     const storageRef = ref(
       storage,
@@ -68,7 +67,7 @@ function useUpload() {
         });
 
         setStatus(StatusText.GENERATING);
-        // await generateEmbeddings(fileIdToUploadTo);
+        await generateEmbeddings(fileIdToUploadTo);
 
         setFileId(fileIdToUploadTo);
       }

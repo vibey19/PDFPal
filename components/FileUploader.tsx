@@ -1,6 +1,6 @@
 "use client";
 
-import { JSX, useCallback, useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { useDropzone } from "react-dropzone";
 import {
   CheckCircleIcon,
@@ -12,7 +12,7 @@ import {
 import useUpload, { StatusText } from "@/hooks/useUpload";
 import { useRouter } from "next/navigation";
 import useSubscription from "@/hooks/useSubscription";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "./ui/use-toast";
 
 function FileUploader() {
   const { progress, status, fileId, handleUpload } = useUpload();

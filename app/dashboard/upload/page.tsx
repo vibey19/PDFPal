@@ -1,10 +1,10 @@
 import FileUploader from "@/components/FileUploader";
 
-const UploadPage = () => {
+function UploadPage() {
   return (
     <div>
       <FileUploader />
     </div>
   );
-};
+}
 export default UploadPage;
